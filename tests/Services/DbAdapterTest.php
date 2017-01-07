@@ -4,6 +4,7 @@ use NickLewis\PhalconDbMock\Models\Row;
 use NickLewis\PhalconDbMock\Models\Table;
 use NickLewis\PhalconDbMock\Services\DbAdapter;
 use NickLewis\PhalconDbMock\Services\DependencyInjection;
+
 use Phalcon\Db\Column;
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Di\InjectionAwareInterface;

@@ -427,11 +427,10 @@ class DbAdapter extends Adapter implements AdapterInterface, InjectionAwareInter
      * This method is automatically called in Phalcon\Db\Adapter\Pdo constructor.
      * Call it when you need to restore a database connection
      *
-     * @param mixed $descriptor
-     * @param       $array descriptor
+     * @param $array descriptor
      * @return
      */
-    public function connect($descriptor = null) {
+    public function connect(array $descriptor = null) {
         throw new \Exception('To Implement: '.__CLASS__.'::'.__FUNCTION__);// TODO: Implement connect() method.
     }
 
