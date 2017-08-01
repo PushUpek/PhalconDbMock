@@ -259,6 +259,10 @@ class Select extends Base {
                             $isTrue = !$isTrue;
                         }
                         break;
+                    case 'IN':
+                        $value = $this->parseValue($row, array_shift($wheres));
+                        $isTrue = in_array($comparisonValue, $value);
+                        break;
                     default:
                         throw new \Exception('Unhandled Operator type: ' . $operator['base_expr']);
                         break;
@@ -317,6 +321,9 @@ class Select extends Base {
             return trim($value, implode('', $possibleQuotes));
         } elseif(is_numeric($value)) {
             return $value;
+        } elseif (preg_match('#\((.*?)\)#', $value, $match)) {
+            $value = str_replace($possibleQuotes, ['', ''], $match[1]);
+            return array_map('trim', explode(',', $value));
         } else {
             return $this->findCell($row, $where['no_quotes']['parts'])->getValue();
         }
